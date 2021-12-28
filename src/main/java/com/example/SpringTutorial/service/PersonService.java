@@ -17,7 +17,7 @@ public class PersonService {
 
     // The qualifier name can simply be changed to switch the database implementation
     @Autowired
-    public PersonService(@Qualifier("fakeDao") PersonDao personDao) {
+    public PersonService(@Qualifier("postgresqlimpl") PersonDao personDao) {
         this.personDao = personDao;
     }
 

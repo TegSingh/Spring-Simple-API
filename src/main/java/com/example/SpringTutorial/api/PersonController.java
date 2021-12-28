@@ -3,6 +3,7 @@ package com.example.SpringTutorial.api;
 import com.example.SpringTutorial.model.Person;
 import com.example.SpringTutorial.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class PersonController {
     }
 
     @PutMapping(path = "/{id}")
-    public int updatePersonById(@PathVariable("id") UUID id, @RequestBody Person person) {
+    public int updatePersonById(@PathVariable("id") UUID id, @NonNull @RequestBody Person person) {
         return personService.updatePerson(id, person);
     }
 
