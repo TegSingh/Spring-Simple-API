@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 // This is a postgreSQL implementation
-@Repository("postgresqlimpl")
+@Repository("postgres")
 public class PersonDataAccessService implements PersonDao {
 
 
