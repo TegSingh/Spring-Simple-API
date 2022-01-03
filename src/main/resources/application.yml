@@ -2,5 +2,5 @@ app:
   datasource:
     jdbc-url: jdbc:postgresql://localhost:5432/springtutorialdb
     username: postgres
-    password: nothing
+    password: Tegveer@22
     pool-size: 30

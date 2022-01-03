@@ -4,6 +4,7 @@ import com.example.SpringTutorial.model.Person;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
@@ -19,10 +20,10 @@ public class PersonDataAccessService implements PersonDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     @Override
     public int insertPerson(UUID id, Person person) {
-        return 0;
+        String sql = "INSERT INTO person (id, name) VALUES (?, ?)";
+        return jdbcTemplate.update(sql, new Object[]{id, person.getName()});
     }
 
     @Override
@@ -50,11 +51,13 @@ public class PersonDataAccessService implements PersonDao {
 
     @Override
     public int deletePersonById(UUID id) {
-        return 0;
+        String sql = "DELETE FROM person WHERE id = ?";
+        return jdbcTemplate.update(sql, id);
     }
 
     @Override
     public int updatePersonById(UUID id, Person person) {
-        return 0;
+        String sql = "UPDATE person SET name = ? WHERE id = ?";
+        return jdbcTemplate.update(sql, person.getName(), id);
     }
 }
